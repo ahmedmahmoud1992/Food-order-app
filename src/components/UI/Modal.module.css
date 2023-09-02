@@ -1,0 +1,57 @@
+.dialog {
+    width: 90%;
+    /* height: 90%; */
+    display: grid;
+    grid-template-rows: auto auto auto;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    padding: 0;
+    border: none;
+    animation: slide-down 300ms ease-out forwards;
+}
+
+.dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+
+}
+
+.dialog:focus-visible {
+    outline: none;
+}
+
+.dialog-header,
+.dialog-footer {
+    height: 50px;
+    background-color: rgb(247, 250, 253);
+}
+.dismiss {
+    cursor: pointer;
+    float: right;
+    margin-inline-end: 10px;
+    font-size: 35px;
+    font-weight: 600;
+    
+}
+.dismiss:hover {
+    color: #444;
+}
+.dialog-body {
+    padding: 1em;
+}
+
+
+@media (min-width: 768px) {
+    .dialog {
+        width: 40rem;
+    }
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
