@@ -16,7 +16,7 @@ const Modal = ({children}) => {
         <span className={classes.dismiss} onClick={() => setIsCartvisible(false)}>&times;</span>
       </div>
       <div className={classes["dialog-body"]}>{children}</div>
-      <div className={classes["dialog-footer"]}></div>
+      {/* <div className={classes["dialog-footer"]}></div> */}
     </dialog>
   );
 };
