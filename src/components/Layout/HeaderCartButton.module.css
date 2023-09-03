@@ -54,3 +54,21 @@
       transform: scale(1.15);
     }
   }
+  
+
+@media screen and (width <= 480px) {
+  .button {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.75rem 1rem;
+  }
+  .cartButtonText {
+    display: none;
+  }
+  .icon {
+    width: 2.35rem;
+    height: 2.35rem;
+    margin-right: 0rem;
+  }
+}

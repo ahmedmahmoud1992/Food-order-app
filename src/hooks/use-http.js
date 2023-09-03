@@ -3,7 +3,6 @@ import { useCallback, useState } from "react";
 const useHttp = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
-    console.log(isError);
     const httpRequestHandler = useCallback(async (requestConfig, applyData) => {
         setIsLoading(true);
         try {
@@ -18,12 +17,11 @@ const useHttp = () => {
             const data = await request.json();
     
             setIsLoading(false);
-            applyData(data);
-            // console.log('##########################');
+            if(applyData){
+                applyData(data);
+            }
         } catch (error) {
-            // console.log(isError);
             setIsError(true);
-            // console.log(isError);
         }
     }, []);
 

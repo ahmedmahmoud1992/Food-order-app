@@ -26,7 +26,6 @@ const Cart = (props) => {
   const cancelOrderHandler = () => setIsCheckout(false);
   
   const { isLoading: isSubmitting, isError, httpRequestHandler: submitCartData } = useHttp();
-  
   const submitOrderHandler = async (userData) => {
     await submitCartData({
       url: "https://react-http-c2074-default-rtdb.firebaseio.com/orders.json",
@@ -44,7 +43,6 @@ const Cart = (props) => {
     cartCtx.clearCart();
   };
 
-  console.log(isError);
 
   const cartItems = (
     <ul className={classes["cart-items"]}>

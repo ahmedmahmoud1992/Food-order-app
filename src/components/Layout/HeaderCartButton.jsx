@@ -20,7 +20,7 @@ const HeaderCartButton = () => {
     <span className={classes.icon}>
         <CartIcon />
     </span>
-    <span>
+    <span className={classes.cartButtonText}>
       Your cart
       </span>
     <span className={classes.badge}>
