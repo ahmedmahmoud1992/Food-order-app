@@ -23,7 +23,13 @@ const cartReducer = ({ items, totalAmount }, action) => {
                 items: existingItem.amount === 1 ? items.filter(item => item.id !== action.id) :
                     items.map(item => (item.id !== action.id) ? item :
                         { ...existingItem, amount: existingItem.amount - 1 }),
-                totalAmount: totalAmount - existingItem.price
+                totalAmount: items.length === 0? 0: totalAmount - existingItem.price
+            }
+        case 'DISMISS':
+            existingItem = items[items.findIndex(item => item.id === action.id)];
+            return {
+                items: items.filter(item => item.id !== action.id),
+                totalAmount: totalAmount - existingItem.price * existingItem.amount
             }
         case 'CLEAR':
             return defaultCartState;
@@ -45,6 +51,12 @@ const CartProvider = ({ children }) => {
             id: id
         })
     };
+    const dismissItemHandler = id => {
+        dispatchCartAction({
+            type: 'DISMISS',
+            id: id
+        })
+    };
 
     const clearCartHandler = () => {
         dispatchCartAction({ type: 'CLEAR' });
@@ -55,6 +67,7 @@ const CartProvider = ({ children }) => {
         totalAmount: cartState.totalAmount,
         addItem: addItemToCartHandler,
         removeItem: removeItemToCartHandler,
+        dismissItem: dismissItemHandler,
         clearCart: clearCartHandler
     }
 
