@@ -31,7 +31,7 @@ const Cart = (props) => {
   const { isLoading: isSubmitting, isError, httpRequestHandler: submitCartData } = useHttp();
   const submitOrderHandler = async (userData) => {
     await submitCartData({
-      url: "https://react-http-c2074-default-rtdb.firebaseio.com/orders.json",
+      url: "https://food-order-app-18796-default-rtdb.firebaseio.com/orders.json",
       method: "POST",
       body: {
         user: userData,

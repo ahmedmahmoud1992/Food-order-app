@@ -27,7 +27,7 @@ const AvailableMeals = () => {
       setMeals(transformedData)
     }
 
-    fetchMeals({ url: "https://react-http-c2074-default-rtdb.firebaseio.com/meals.json" }, transformedMeals);
+    fetchMeals({ url: "https://food-order-app-18796-default-rtdb.firebaseio.com/meals.json" }, transformedMeals);
 
   }, [fetchMeals]);
   
